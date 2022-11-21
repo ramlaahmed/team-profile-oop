@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": ""
+    "test": "",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ramlaahmed/team-profile-oop/issues"
   },
-  "homepage": "https://github.com/ramlaahmed/team-profile-oop#readme"
+  "homepage": "https://github.com/ramlaahmed/team-profile-oop#readme",
+  "dependencies": {
+    "inquirer": "^9.1.4"
+  }
 }

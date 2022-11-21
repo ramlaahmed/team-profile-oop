@@ -1,17 +1,19 @@
-const generateHTML = require('./src/generateHTML');
-
-
-const Manager = require('./lib/Manager');
-const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern'); 
-
-const fs = require('fs'); 
 const inquirer = require('inquirer');
+// import inquirer from 'inquirer';
+const fs = require('fs'); 
+// import fs from "fs"
+
+const generateHTML = require('./source/generateHTML');
+const Manager = require('./source/lib/manager');
+const Engineer = require('./source/lib/engineer');
+const Intern = require('./source/lib/intern'); 
+
+
 
 const teamArray = []; 
 
 const addManager = () => {
-    return inquirer.prompt ([
+     inquirer.prompt([
         {
             type: 'input',
             name: 'name',

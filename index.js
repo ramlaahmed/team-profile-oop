@@ -125,8 +125,36 @@ function managerPrompt() {
         teamArray.push(manager);
         console.log(teamArray);
 
-        engineerPrompt();
+        createTeam();
     })
+}
+
+
+function createTeam(){
+    // prompt saying what members you want to add
+     // engineer  - engineerPrompt() {
+
+    // intern - internPrompt()
+    // else makeTeam
+    inquirer
+    .prompt([
+        {
+          type: "list",
+          name: "teammembers",
+          message: "what members do you want to add?",
+          choices: ["Engineer", "Intern", "Not at this time"],
+        },
+      ])
+      .then((val) => {
+        if (val.teammembers === "Engineer") {
+          engineerPrompt();
+        } else if (val.teammembers === "Intern") {
+          internPrompt();
+        } else {
+          makeTeam();
+        }
+      });
+
 }
 
 
@@ -141,7 +169,7 @@ function engineerPrompt() {
 
         teamArray.push(engineer);
         console.log(teamArray);
-        next();
+        createTeam();
     })
 }
 
@@ -157,7 +185,7 @@ function internPrompt() {
 
         teamArray.push(intern);
         console.log(teamArray);
-        next();
+        createTeam();
     })
 }
 

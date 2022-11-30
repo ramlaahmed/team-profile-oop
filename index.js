@@ -141,7 +141,7 @@ function createTeam(){
           type: "list",
           name: "teammembers",
           message: "which team member do you want to add?",
-          choices: ["Engineer", "Intern","Done!!"],
+          choices: ["Engineer", "Intern","Done"],
         },
       ])
       .then((val) =>  { 
@@ -150,7 +150,7 @@ function createTeam(){
           engineerPrompt();
         } else if (val.teammembers === "Intern") {
           internPrompt();
-        } else if (val.teammembers === 'Done') {
+        } else if (val.teammembers === "Done") {
           makeTeam();
           console.log('Created your team!!');
         }

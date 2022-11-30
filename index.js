@@ -15,7 +15,7 @@ const managerQuestions = [
     {
         type: 'input',
         name: 'managerName',
-        message: 'Who is the manager of this team?'
+        message: 'Whats the name of the manager for this team?'
     },
 
     {
@@ -43,25 +43,25 @@ const engineerQuestions = [
     {
         type: 'input',
         name: 'engineerName',
-        message: 'Whats the name of the engineer?'
+        message: 'What is the name of the engineer?'
     },
 
     {
         type: 'input',
         name: 'engineerID',
-        message: 'Please enter the ID number for this engineer?'
+        message: 'what is the ID number for this engineer?'
     },
 
     {
         type: 'input',
         name: 'engineerEmail',
-        message: 'Please enter the email address for this engineer?'
+        message: 'what is the email address for this engineer?'
     },
 
     {
         type: 'input',
         name: 'github',
-        message: 'Please enter this engineers GitHub user name?'
+        message: 'what is the engineers GitHub user name?'
     },
 ]
 
@@ -71,19 +71,19 @@ const internQuestions = [
     {
         type: 'input',
         name: 'internName',
-        message: 'Whats the name of this intern?'
+        message: 'What is the name of this intern?'
     },
 
     {
         type: 'input',
         name: 'internID',
-        message: 'Please enter the ID number for this intern?',
+        message: 'What is the ID number for this intern?',
     },
 
     {
         type: 'input',
         name: 'internEmail',
-        message: 'please enter the email address for this intern?'
+        message: 'What is the email address for this intern?'
     },
 
     {
@@ -109,7 +109,7 @@ function next() {
                 internPromt();
                 break;
             case 'Done':
-                console.log('Creating your team!')
+                console.log('Created Team!');
                 makeTeam();
         }
     })
@@ -141,8 +141,8 @@ function createTeam(){
         {
           type: "list",
           name: "teammembers",
-          message: "what members do you want to add?",
-          choices: ["Engineer", "Intern", "Not at this time"],
+          message: "which team member do you want to add?",
+          choices: ["Engineer", "Intern","Done!!"],
         },
       ])
       .then((val) => {
@@ -151,7 +151,7 @@ function createTeam(){
         } else if (val.teammembers === "Intern") {
           internPrompt();
         } else {
-          makeTeam();
+          createTeam();
         }
       });
 
@@ -195,7 +195,8 @@ function internPrompt() {
 function makeTeam() {
 fs.writeFile('index.html', render(teamArray), function(err) {
 if (err) { 
-    return console.log(err)
+    return console.log(err);
+   
 }
 })}
 

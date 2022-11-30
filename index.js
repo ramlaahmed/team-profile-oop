@@ -97,20 +97,19 @@ function init() {
     managerPrompt();
 }
 
-function next() {
+function makeTeam() {
     
     inquirer.prompt(engineerQuestions).then((response) => {
         console.log(response);
         switch (response.nextEngineer) {
             case 'Engineer':
-                engineerPromt();
+                engineerPrompt();
                 break;
             case 'Intern':
-                internPromt();
+                internPrompt();
                 break;
-            case 'Done':
-                console.log('Created Team!');
-                makeTeam();
+            default: ('Created you team!');
+                buildTeam();
         }
     })
 }
@@ -145,13 +144,15 @@ function createTeam(){
           choices: ["Engineer", "Intern","Done!!"],
         },
       ])
-      .then((val) => {
+      .then((val) =>  { 
+        
         if (val.teammembers === "Engineer") {
           engineerPrompt();
         } else if (val.teammembers === "Intern") {
           internPrompt();
-        } else {
-          createTeam();
+        } else if (val.teammembers === 'Done') {
+          makeTeam();
+          console.log('Created your team!!');
         }
       });
 
@@ -190,10 +191,8 @@ function internPrompt() {
 }
 
 
-
-
 function makeTeam() {
-fs.writeFile('index.html', render(teamArray), function(err) {
+fs.writeFileSync('team.html', render(teamArray), function(err) {
 if (err) { 
     return console.log(err);
    

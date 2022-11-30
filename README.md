@@ -6,10 +6,10 @@ The Inquirer module from Node.js was used to develop this application, which gen
 
 ## Technologies
 
-- JavaScript
-- Node.js
 - HTML
 - CSS
+- JavaScript
+- Node.js
 - Jest
 
 ## ScreenShot

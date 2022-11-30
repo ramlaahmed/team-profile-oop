@@ -2,9 +2,9 @@ const inquirer = require('inquirer');
 const fs = require('fs'); 
 
 
-const Manager = require('./source/lib/manager');
-const Engineer = require('./source/lib/engineer');
-const Intern = require('./source/lib/intern'); 
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern'); 
 
 const render = require("./source/generateHTML");
 
@@ -37,7 +37,7 @@ const managerQuestions = [
     },
 ]
 
-//Engineer: 
+
 const engineerQuestions = [
 
     {
@@ -49,23 +49,23 @@ const engineerQuestions = [
     {
         type: 'input',
         name: 'engineerID',
-        message: 'Please enter the ID number for this engineer'
+        message: 'Please enter the ID number for this engineer?'
     },
 
     {
         type: 'input',
         name: 'engineerEmail',
-        message: 'Please enter the email address for this engineer'
+        message: 'Please enter the email address for this engineer?'
     },
 
     {
         type: 'input',
         name: 'github',
-        message: 'Please enter this engineers GitHub user name'
+        message: 'Please enter this engineers GitHub user name?'
     },
 ]
 
-//Intern:
+
 const internQuestions = [
 
     {

@@ -1,4 +1,4 @@
-const generateHTML = (data) => {
+
   const generateManager = function (manager) {
     return `
   <div class="col-4 mt-4"> <div class="card h-100">
@@ -47,46 +47,32 @@ return `
 </div></div>
 </div>
     `
-};
+}
 
-// push array to page 
-generateHTML = () => {
+const generateHTML = (data) => {
 
-    // array for cards 
-    pageArray = []; 
+  pageArray = []; 
+        for (let i = 0; i < data.length; i++) {
+const employee = data[i];
+const role = employee.getRole(); 
 
-    for (let i = 0; i < data.length; i++) {
-        const employee = data[i];
-        const role = employee.getRole(); 
+if (role === 'Manager') {
+  const managerCard = generateManager(employee);
+  pageArray.push(managerCard);
+}
 
+if (role === 'Engineer') {
+  const engineerCard = generateEngineer(employee);
+   pageArray.push(engineerCard);
+  }
 
-        // call manager function
-        if (role === 'Manager') {
-            const managerCard = generateManager(employee);
+if (role === 'Intern') {
+  const internCard = generateIntern(employee);
+  pageArray.push(internCard);
+  }
+}
 
-            pageArray.push(managerCard);
-        }
-
-        // call engineer function
-        if (role === 'Engineer') {
-            const engineerCard = generateEngineer(employee);
-
-            pageArray.push(engineerCard);
-        }
-
-        // call intern function 
-        if (role === 'Intern') {
-            const internCard = generateIntern(employee);
-
-            pageArray.push(internCard);
-        }
-        
-    }
-
-    // joining strings 
-    const employeeCards = pageArray.join('')
-
-    // return to generated page
+const employeeCards = pageArray.join('')
     const generateTeam = generateTeamPage(employeeCards); 
     return generateTeam;
 
@@ -107,20 +93,21 @@ const generateTeamPage = function (employeeCards) {
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-      <header>
-          <nav class="navbar" id="navbar">
-              <span class="navbar-brand mb-0 h1 w-100 text-center" id="navbar-text">Team Profile</span>
-          </nav>
-      </header>
-      <main>
-          <div class="container">
-              <div class="row justify-content-center" id="team-cards">
-                  <!--Team Cards-->
-                  ${employeeCards}
-              </div>
-          </div>
-      </main>
+ 
+<body>
+  <header>
+  <nav class="navbar" id="navbar">
+  <span class="navbar-brand mb-0 h1 w-100 text-center" id="navbar-text">Team Profile</span>
+  </nav>
+  </header>
+
+<main>
+  <div class="container">
+  <div class="row justify-content-center" id="team-cards">
+   ${employeeCards}
+  <div class="col-4 mt-4"> <div class="card h-100">
+  </div></div>
+</main>
       
   </body>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -128,9 +115,6 @@ const generateTeamPage = function (employeeCards) {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </html>
 `;
-}
-
-// export to index
 }
 
 
